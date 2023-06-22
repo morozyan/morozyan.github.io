@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Spanish Numbers Recognition Trainer</title>
+</head>
+<body>
+    <div id="container">
+
+        <div class="row">
+            <span id="header">Spanish Numbers Recognition Trainer</span>
+
+        </div>
+
+        <div class="row">
+            <span>from 0 to </span>
+            <select id="maxValue">
+                <option value="10">10</option>
+                <option value="100">100</option>
+                <option value="1000">1000</option>
+                <option value="10000">10000</option>
+                <option value="100000">100000</option>
+            </select>
+        </div>
+
+        <div class="row">
+            <button id="play">
+                Play again
+            </button>
+            <button id="next">
+                Play next
+            </button>
+        </div>
+
+        <div class="row">
+            <input id="userValue" type="number" />
+            <button id="verify">Check</button>
+        </div>
+
+        <div class="row">
+            <span id="result"></span>
+            <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <span id="successfulAttempts"></span>/<span id="allAttempts"></span>
+        </div>
+
+    </div>
+
+    <script>
+        let url = "https://mx-num-poc.azurewebsites.net/api/Generator";
+
+        let nextBtn = document.querySelector("#next");
+        let verifyBtn = document.querySelector("#verify");
+        let playBtn = document.querySelector("#play");
+
+        let resultBox = document.querySelector("#result");
+        let successfulAttemptsBox = document.querySelector("#successfulAttempts");
+        let allAttemptsBox = document.querySelector("#allAttempts");
+
+        let userValueInput = document.querySelector("#userValue");
+
+        let marks = {
+            correctAnswer: "✔️",
+            wrongAnswer: "❌"
+        };
+
+        let state = {
+            allAttempts: 0,
+            successfulAttempts: 0,
+            wasAnswered: false,
+            guessedNumber: null
+        };
+
+
+        let audio = null;
+
+        let cleanResult = () => {
+            resultBox.innerHTML = '';
+        };
+
+        let guessNumber = () => {
+
+            let numberUrl = new URL(url);
+            let maxValue = document.querySelector("#maxValue").value;
+
+            numberUrl.searchParams.set('maxValue', maxValue);
+            let tempGuessedNumber = null;
+
+            cleanResult();
+            userValueInput.value = '';
+            nextBtn.setAttribute("disabled", "disabled");
+            playBtn.setAttribute("disabled", "disabled");
+            verifyBtn.removeAttribute("disabled");
+
+            fetch(numberUrl, {
+                method: 'POST'
+            })
+                .then(response => {
+                    tempGuessedNumber = response.headers.get("guessed_number");
+                    return response.arrayBuffer();
+                })
+                .then(arrayBuffer => {
+                    audio = new Audio(URL.createObjectURL(new Blob([arrayBuffer])));
+
+                    state.guessedNumber = tempGuessedNumber;
+                    state.wasAnswered = false;
+
+                    audio.play();
+
+                    state.allAttempts++;
+                    updateState();
+                })
+                .then(() => {
+                    nextBtn.removeAttribute("disabled");
+                    playBtn.removeAttribute("disabled");
+                });
+
+        };
+
+        nextBtn.addEventListener('click', guessNumber);
+
+        playBtn.addEventListener('click', () => {
+
+            if (audio != null) {
+                audio.play();
+                if (state.wasAnswered == false) {
+                    cleanResult();
+                }
+            } else {
+                guessNumber()
+            }
+        });
+
+        verifyBtn.addEventListener('click', () => {
+
+            let userValue = userValueInput.value;
+            if (userValue == state.guessedNumber) {
+
+                if (state.wasAnswered == false) {
+                    state.successfulAttempts++;
+                }
+                state.wasAnswered = true;
+
+                resultBox.innerHTML = marks.correctAnswer;
+
+                verifyBtn.setAttribute("disabled", "disabled");
+
+                updateState();
+            } else {
+                resultBox.innerHTML = marks.wrongAnswer;
+            }
+
+        });
+
+        console.log("test");
+
+        let updateState = () => {
+            successfulAttemptsBox.innerHTML = `${marks.correctAnswer}${state.successfulAttempts}`;
+            allAttemptsBox.innerHTML = `${state.allAttempts}`;
+        }
+
+        updateState();
+    </script>
+</body>
+</html>
