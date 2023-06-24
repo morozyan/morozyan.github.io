@@ -4,15 +4,83 @@
     <title>Spanish Numbers Recognition Trainer</title>
 </head>
 <body>
+    <style>
+        html, body {
+            height: 100%;
+            width: 100%;
+            background-color: #9D7A7C;
+        }
+
+        @media (orientation: portrait) {
+            #container {
+                height: 50%;
+                width: 100%;
+
+                display: grid;
+                grid-template-columns: repeat(1, 1fr);
+                gap: 10px;
+            }
+
+            #header {
+                height: 100%;
+                width: 100%;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 4vh;
+            }
+
+            #play, #next,
+            #userValue, #verify,
+            #maxValuePrefix, #maxValue{
+                height: 100%;
+                width: 49%;
+                margin-left: 0.25%;
+                padding: 0;
+                border: 0;
+                font-size: 4vh;
+                line-height: 0;
+            }
+
+            #maxValuePrefix{
+                display: inline-block;
+                text-align: right;
+            }
+
+            #result, #successfulAttempts {
+                height: 100%;
+                width: 49%;
+                font-size: xxx-large;
+            }
+
+            #resultRow, #result, #successfulAttempts {
+                display: flex;
+            }
+
+            #successfulAttempts {
+                justify-content: right;
+                align-items: center;
+            }
+
+            #result {
+                justify-content: left;
+                align-items: center;
+            }
+
+            #userValue {
+                text-align: center;
+            }
+        }
+    </style>
     <div id="container">
 
         <div class="row">
-            <span id="header">Spanish Numbers Recognition Trainer</span>
-
+            <span id="header">Numbers in Spanish</span>
         </div>
 
         <div class="row">
-            <span>from 0 to </span>
+            <span id="maxValuePrefix">from 0 to&nbsp;</span>
             <select id="maxValue">
                 <option value="10">10</option>
                 <option value="100">100</option>
@@ -32,14 +100,13 @@
         </div>
 
         <div class="row">
-            <input id="userValue" type="number" />
+            <input id="userValue" type="number" min="0" step="1" max="100000" />
             <button id="verify">Check</button>
         </div>
 
-        <div class="row">
+        <div class="row" id="resultRow">
             <span id="result"></span>
-            <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
-            <span id="successfulAttempts"></span>/<span id="allAttempts"></span>
+            <span id="successfulAttempts"></span>
         </div>
 
     </div>
@@ -53,7 +120,6 @@
 
         let resultBox = document.querySelector("#result");
         let successfulAttemptsBox = document.querySelector("#successfulAttempts");
-        let allAttemptsBox = document.querySelector("#allAttempts");
 
         let userValueInput = document.querySelector("#userValue");
 
@@ -153,8 +219,8 @@
         console.log("test");
 
         let updateState = () => {
-            successfulAttemptsBox.innerHTML = `${marks.correctAnswer}${state.successfulAttempts}`;
-            allAttemptsBox.innerHTML = `${state.allAttempts}`;
+            successfulAttemptsBox.innerHTML
+                = `${marks.correctAnswer}${state.successfulAttempts}/${state.allAttempts}`;
         }
 
         updateState();
