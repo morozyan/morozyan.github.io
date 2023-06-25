@@ -34,7 +34,7 @@
 
             #play, #next,
             #userValue, #verify,
-            #maxValuePrefix, #maxValue{
+            #maxValuePrefix, #maxValue {
                 height: 100%;
                 width: 49%;
                 margin-left: 0.25%;
@@ -44,7 +44,7 @@
                 line-height: 0;
             }
 
-            #maxValuePrefix{
+            #maxValuePrefix {
                 display: inline-block;
                 text-align: right;
             }
@@ -106,7 +106,7 @@
         </div>
 
         <div class="row">
-            <input id="userValue" type="number" min="0" step="1" max="100000" />
+            <input id="userValue" type="number" min="0" step="1" max="100000" placeholder="type here" />
             <button id="verify">Check</button>
         </div>
 
@@ -142,7 +142,7 @@
         };
 
 
-        let audio = null;
+        let audio = new Audio();
 
         let cleanResult = () => {
             resultBox.innerHTML = '';
@@ -170,7 +170,7 @@
                     return response.arrayBuffer();
                 })
                 .then(arrayBuffer => {
-                    audio = new Audio(URL.createObjectURL(new Blob([arrayBuffer])));
+                    audio.src = URL.createObjectURL(new Blob([arrayBuffer]));
 
                     state.guessedNumber = tempGuessedNumber;
                     state.wasAnswered = false;
