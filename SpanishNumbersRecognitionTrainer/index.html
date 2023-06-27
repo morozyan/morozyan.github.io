@@ -16,7 +16,6 @@
             #container {
                 height: 50%;
                 width: 100%;
-
                 display: grid;
                 grid-template-columns: repeat(1, 1fr);
                 gap: 10px;
@@ -25,7 +24,6 @@
             #header {
                 height: 100%;
                 width: 100%;
-
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -82,7 +80,7 @@
     <div id="container">
 
         <div class="row">
-            <span id="header">Numbers in Spanish</span>
+            <span id="header">Numbers in MX Spanish</span>
         </div>
 
         <div class="row">
@@ -98,15 +96,15 @@
 
         <div class="row">
             <button id="play">
-                Play again
+                Play again 🔊
             </button>
             <button id="next">
-                Play next
+                Play next 🔊
             </button>
         </div>
 
         <div class="row">
-            <input id="userValue" type="number" min="0" step="1" max="100000" placeholder="type here" />
+            <input id="userValue" type="number" min="0" step="1" max="100000" placeholder="type here" pattern="[0-9]+" />
             <button id="verify">Check</button>
         </div>
 
@@ -143,8 +141,7 @@
 
 
         let audio = new Audio();
-        audio.autoplay = true;
-        
+
         let cleanResult = () => {
             resultBox.innerHTML = '';
         };
@@ -190,9 +187,8 @@
 
         nextBtn.addEventListener('click', guessNumber);
 
-        playBtn.addEventListener('click', () => {
-
-            if (audio != null) {
+        let repeatNumber = () => {
+            if (audio.src != '') {
                 audio.play();
                 if (state.wasAnswered == false) {
                     cleanResult();
@@ -200,9 +196,11 @@
             } else {
                 guessNumber()
             }
-        });
+        }
 
-        verifyBtn.addEventListener('click', () => {
+        playBtn.addEventListener('click', repeatNumber);
+
+        let checkNumber = () => {
 
             let userValue = userValueInput.value;
             if (userValue == state.guessedNumber) {
@@ -220,8 +218,9 @@
             } else {
                 resultBox.innerHTML = marks.wrongAnswer;
             }
+        };
 
-        });
+        verifyBtn.addEventListener('click', checkNumber);
 
         console.log("test");
 
@@ -230,6 +229,25 @@
                 = `${marks.correctAnswer}${state.successfulAttempts}/${state.allAttempts}`;
         }
 
+        let setKeyHandlers = () => {
+            let guessNumberKeys = ["*", "d"];
+
+            let checkNumberKeys = ["Enter", "s"];
+
+            let repeatNumberKeys = ["/", "a"];
+
+            document.addEventListener("keyup", function (event) {
+                if (guessNumberKeys.includes(event.key)) {
+                    guessNumber();
+                } else if (checkNumberKeys.includes(event.key)) {
+                    checkNumber();
+                } else if (repeatNumberKeys.includes(event.key)) {
+                    repeatNumber();
+                }
+            });
+        }
+
+        setKeyHandlers();
         updateState();
     </script>
 </body>
