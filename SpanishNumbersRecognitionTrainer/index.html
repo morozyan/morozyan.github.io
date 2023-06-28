@@ -91,7 +91,6 @@
                 <option value="100">100</option>
                 <option value="1000">1000</option>
                 <option value="10000">10000</option>
-                <option value="100000">100000</option>
             </select>
         </div>
 
@@ -105,7 +104,7 @@
         </div>
 
         <div class="row">
-            <input id="userValue" type="number" min="0" step="1" max="100000" placeholder="type here" pattern="[0-9]+" />
+            <input id="userValue" type="number" min="0" step="1" max="10000" placeholder="type here" pattern="[0-9]+" inputmode="numeric"/>
             <button id="verify">Check</button>
         </div>
 
@@ -165,8 +164,11 @@
                 method: 'POST'
             })
                 .then(response => {
-                    tempGuessedNumber = response.headers.get("guessed_number");
-                    return response.arrayBuffer();
+                    if (response.ok) {
+                        tempGuessedNumber = response.headers.get("guessed_number");
+                        return response.arrayBuffer();
+                    }
+                    throw new Error();
                 })
                 .then(arrayBuffer => {
                     audio.src = URL.createObjectURL(new Blob([arrayBuffer]));
@@ -182,7 +184,10 @@
                 .then(() => {
                     nextBtn.removeAttribute("disabled");
                     playBtn.removeAttribute("disabled");
-                });
+                })
+                .catch((error) => {
+                    alert("Something went wrong");
+                });;
 
         };
 
@@ -204,6 +209,10 @@
         let checkNumber = () => {
 
             let userValue = userValueInput.value;
+            if (userValue == "") {
+                return;
+            }
+
             if (userValue == state.guessedNumber) {
 
                 if (state.wasAnswered == false) {
@@ -246,6 +255,7 @@
                     repeatNumber();
                 }
             });
+            userValueInput.focus();
         }
 
         setKeyHandlers();
