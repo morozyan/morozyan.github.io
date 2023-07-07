@@ -4,19 +4,23 @@
     <meta name="viewport" content="user-scalable=no" />
     <title>Spanish Numbers Recognition Trainer</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="milligram.min.css">
 </head>
 <body>
     <style>
+       
         html, body {
             height: 100%;
             width: 100%;
-            background-color: #9D7A7C;
+            margin: 0;
+            background-color: #f4f5f6;
         }
 
         @media (orientation: portrait) {
             #container {
+                margin-left: 1%;
                 height: 50%;
-                width: 100%;
+                width: 98%;
                 display: grid;
                 grid-template-columns: repeat(1, 1fr);
                 gap: 10px;
@@ -28,37 +32,36 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                font-size: 4vh;
+                font-size: xxx-large !important;
+            }
+
+            input, select {
+                padding-top: 0 !important;
+                padding-bottom: 0 !important;
+                color: inherit !important;
+                font-size: xxx-large !important;
+                margin-bottom: 0 !important;
             }
 
             #play, #next,
             #userValue, #verify,
             #maxValuePrefix, #maxValue {
                 height: 100%;
-                width: 49%;
-                margin-left: 0.25%;
-                padding: 0;
-                border: 0;
-                font-size: 4vh;
-                line-height: 0;
+                width: 100%;
+                font-size: 2vh;
             }
 
-            #maxValuePrefix {
-                display: inline-block;
-                text-align: right;
-            }
-
-            #result, #successfulAttempts {
+            #maxValuePrefix, #result, #successfulAttempts {
                 height: 100%;
-                width: 49%;
+                width: 100%;
                 font-size: xxx-large;
             }
 
-            #resultRow, #result, #successfulAttempts {
+            #maxValuePrefix, #resultRow, #result, #successfulAttempts {
                 display: flex;
             }
 
-            #successfulAttempts {
+            #maxValuePrefix, #successfulAttempts {
                 justify-content: right;
                 align-items: center;
             }
@@ -70,11 +73,6 @@
 
             #userValue {
                 text-align: center;
-                -moz-appearance: textfield;
-            }
-
-            #maxValue {
-                -moz-appearance: none;
             }
         }
     </style>
@@ -85,32 +83,48 @@
         </div>
 
         <div class="row">
-            <span id="maxValuePrefix">from 0 to&nbsp;</span>
-            <select id="maxValue">
-                <option value="10">10</option>
-                <option value="100">100</option>
-                <option value="1000">1000</option>
-                <option value="10000">10000</option>
-            </select>
+            <div class="column">
+                <span id="maxValuePrefix">from 0 to</span>
+            </div>
+            <div class="column">
+                <select id="maxValue">
+                    <option value="10">10</option>
+                    <option value="100">100</option>
+                    <option value="1000">1000</option>
+                    <option value="10000">10000</option>
+                </select>
+            </div>
         </div>
 
         <div class="row">
-            <button id="play">
-                Play again 🔊
-            </button>
-            <button id="next">
-                Play next 🔊
-            </button>
+            <div class="column">
+                <button id="play">
+                    Play again 🔊
+                </button>
+            </div>
+            <div class="column">
+                <button id="next">
+                    Play next 🔊
+                </button>
+            </div>
         </div>
 
         <div class="row">
-            <input id="userValue" type="number" min="0" step="1" max="10000" placeholder="type here" pattern="[0-9]+" inputmode="numeric"/>
-            <button id="verify">Check</button>
+            <div class="column">
+                <input id="userValue" type="number" min="0" step="1" max="10000" placeholder="type here" pattern="[0-9]+" inputmode="numeric" />
+            </div>
+            <div class="column">
+                <button id="verify">Check</button>
+            </div>
         </div>
 
         <div class="row" id="resultRow">
-            <span id="result"></span>
-            <span id="successfulAttempts"></span>
+            <div class="column">
+                <span id="result"></span>
+            </div>
+            <div class="column">
+                <span id="successfulAttempts"></span>
+            </div>
         </div>
 
     </div>
