@@ -16,6 +16,29 @@
             background-color: #f4f5f6;
         }
 
+        @media (orientation: landscape) {
+            #container {
+                margin: auto;
+                height: 50%;
+                width: 98%;
+                display: grid;
+                grid-template-columns: repeat(1, 1fr);
+                gap: 10px;
+                max-width: 500px;
+            }
+
+            #play, #next,
+            #userValue, #verify,
+            #maxValuePrefix, #maxValue,
+            #result, #successfulAttempts {
+                font-size: large;
+            }
+
+            input, select, #header {
+                font-size: large !important;
+            }
+        }
+
         @media (orientation: portrait) {
             #container {
                 margin-left: 1%;
@@ -26,54 +49,64 @@
                 gap: 10px;
             }
 
-            #header {
-                height: 100%;
-                width: 100%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                font-size: xxx-large !important;
-            }
-
-            input, select {
-                padding-top: 0 !important;
-                padding-bottom: 0 !important;
-                color: inherit !important;
-                font-size: xxx-large !important;
-                margin-bottom: 0 !important;
+            #maxValuePrefix, #result, #successfulAttempts {
+                font-size: xxx-large;
             }
 
             #play, #next,
             #userValue, #verify,
-            #maxValuePrefix, #maxValue {
-                height: 100%;
-                width: 100%;
+            #maxValue {
                 font-size: 2vh;
             }
 
-            #maxValuePrefix, #result, #successfulAttempts {
-                height: 100%;
-                width: 100%;
-                font-size: xxx-large;
+            input, select, #header {
+                font-size: xxx-large !important;
             }
+        }
 
-            #maxValuePrefix, #resultRow, #result, #successfulAttempts {
-                display: flex;
-            }
+        #header {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-            #maxValuePrefix, #successfulAttempts {
-                justify-content: right;
-                align-items: center;
-            }
+        input, select {
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+            color: inherit !important;
+            margin-bottom: 0 !important;
+        }
 
-            #result {
-                justify-content: left;
-                align-items: center;
-            }
+        #play, #next,
+        #userValue, #verify,
+        #maxValuePrefix, #maxValue {
+            height: 100%;
+            width: 100%;
+        }
 
-            #userValue {
-                text-align: center;
-            }
+        #maxValuePrefix, #result, #successfulAttempts {
+            height: 100%;
+            width: 100%;
+        }
+
+        #maxValuePrefix, #resultRow, #result, #successfulAttempts {
+            display: flex;
+        }
+
+        #maxValuePrefix, #successfulAttempts {
+            justify-content: right;
+            align-items: center;
+        }
+
+        #result {
+            justify-content: left;
+            align-items: center;
+        }
+
+        #userValue {
+            text-align: center;
         }
     </style>
     <div id="container">
@@ -254,11 +287,11 @@
         }
 
         let setKeyHandlers = () => {
-            let guessNumberKeys = ["*", "d"];
+            let guessNumberKeys = ["*", "d", "D", "в", "В"];
 
-            let checkNumberKeys = ["Enter", "s"];
+            let checkNumberKeys = ["Enter", "s", "S", "ы", "Ы"];
 
-            let repeatNumberKeys = ["/", "a"];
+            let repeatNumberKeys = ["/", "a", "A", "ф", "Ф"];
 
             document.addEventListener("keyup", function (event) {
                 if (guessNumberKeys.includes(event.key)) {
