@@ -221,7 +221,9 @@
                 })
                 .then(arrayBuffer => {
 			var reader = new FileReader();
-			reader.readAsDataURL(new Blob([arrayBuffer])); 
+			var blob = new Blob([arrayBuffer]);
+			blob.type="audio/wav";
+			reader.readAsDataURL(blob); 
 			reader.onloadend = function() {
                     		audio.src = reader.result;
 			}
