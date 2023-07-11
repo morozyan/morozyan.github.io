@@ -226,6 +226,7 @@
                         audio.src = reader.result
                             .replace('data:application/octet-stream;', 'data:audio/wav;')
                             .replace('data:;', 'data:audio/wav;');
+                        audio.play();
                     }
 
                     state.guessedNumber = tempGuessedNumber;
