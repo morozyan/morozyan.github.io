@@ -220,7 +220,11 @@
                     throw new Error();
                 })
                 .then(arrayBuffer => {
-                    audio.src = URL.createObjectURL(new Blob([arrayBuffer]));
+			var reader = new FileReader();
+			reader.readAsDataURL(new Blob([arrayBuffer])); 
+			reader.onloadend = function() {
+                    		audio.src = reader.result;
+			}
 
                     state.guessedNumber = tempGuessedNumber;
                     state.wasAnswered = false;
