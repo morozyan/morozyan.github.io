@@ -221,11 +221,9 @@
                 })
                 .then(arrayBuffer => {
 			var reader = new FileReader();
-			var blob = new Blob([arrayBuffer]);
-			blob.type="audio/wav";
-			reader.readAsDataURL(blob); 
+			reader.readAsDataURL(new Blob([arrayBuffer])); 
 			reader.onloadend = function() {
-                    		audio.src = reader.result;
+				audio.src = reader.result.replace('data:application/octet-stream','data:audio/wav')
 			}
 
                     state.guessedNumber = tempGuessedNumber;
