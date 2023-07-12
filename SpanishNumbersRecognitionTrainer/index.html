@@ -189,13 +189,19 @@
 
         const audio = new Audio();
         audio.autoplay = true;
-        audio.src = "data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEARKwAAIhYAQACABAAAABkYXRhAgAAAAEA";
+
+        let initAudio = () => {
+            audio.src = "data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEARKwAAIhYAQACABAAAABkYXRhAgAAAAEA";
+        }
 
         let cleanResult = () => {
             resultBox.innerHTML = '';
         };
 
         let guessNumber = () => {
+            if (audio.src == '') {
+                initAudio();
+            }
 
             let numberUrl = new URL(url);
             let maxValue = document.querySelector("#maxValue").value;
