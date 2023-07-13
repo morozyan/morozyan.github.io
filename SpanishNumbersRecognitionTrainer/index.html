@@ -233,6 +233,7 @@
                             .replace('data:application/octet-stream;', 'data:audio/wav;')
                             .replace('data:;', 'data:audio/wav;');
                         audio.play();
+                        userValueInput.focus();
                     }
 
                     state.guessedNumber = tempGuessedNumber;
@@ -256,6 +257,7 @@
         let repeatNumber = () => {
             if (audio.src != '') {
                 audio.play();
+                userValueInput.focus();
                 if (state.wasAnswered == false) {
                     cleanResult();
                 }
