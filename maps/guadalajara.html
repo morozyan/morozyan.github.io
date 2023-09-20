@@ -5,20 +5,59 @@
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>    
     <style>
       body { margin: 0; padding: 0; }
-      #map { height: 1000px; width: 1000px; }
+      html,body, #map { height: 100%; width: 100%; }
     </style>
   </head>
   <body>
     <div id="map"></div>
     <script>
     	mapboxgl.accessToken = 'pk.eyJ1IjoibW9yb3p5YW4iLCJhIjoiY2xtbG9pejdkMGN0dzJqbXd2bTVzZzVoaSJ9.jYAn1Xi2o3bZ20bpohSbdg';
-    const map = new mapboxgl.Map({
-    container: 'map', // container ID
-    // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
-    style: 'mapbox://styles/mapbox/streets-v12', // style URL
-    center: [-103.34872062829716, 20.672494028475253], // starting position [lng, lat]
-    zoom: 10 // starting zoom
-    });
+      const map = new mapboxgl.Map({
+      container: 'map', // container ID
+        // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
+        style: 'mapbox://styles/mapbox/streets-v12', // style URL
+        center: [-103.34872062829716, 20.672494028475253], // starting position [lng, lat]
+        zoom: 11 // starting zoom
+      });
+      map.on('click', (e) => {
+        console.log(`A click event has occurred at ${e.lngLat}`);
+      });
+
+
+      map.on('load', () => {
+        // Add a data source containing GeoJSON data.
+        map.addSource('plazapatria', {
+          'type': 'geojson',
+          'data': {
+          'type': 'Feature',
+          'geometry': {
+          'type': 'Polygon',
+          // These coordinates outline Maine.
+          'coordinates': [
+            [
+              [-103.38094229455533, 20.712137596424895],
+              [-103.37748397346442, 20.713730298267123],
+              [-103.3749496312911, 20.712137596424895],
+              [-103.38024271051786, 20.711174559282696],
+            ]
+          ]
+          }
+          }
+        });
+         
+        // Add a new layer to visualize the polygon.
+        map.addLayer({
+          'id': 'plazapatria',
+          'type': 'fill',
+          'source': 'plazapatria', // reference the data source
+          'layout': {},
+          'paint': {
+          'fill-color': '#00aaa4', 
+          'fill-opacity': 0.5
+          }
+        });
+        
+        });
     </script>
   </body>
 </html>
