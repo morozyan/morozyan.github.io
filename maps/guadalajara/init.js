@@ -8,8 +8,44 @@ const map = new mapboxgl.Map({
     zoom: 11 // starting zoom
 });
 
+let buffer = [];
+
 map.on('click', (e) => {
-    console.log(`A click event has occurred at ${e.lngLat}`);
+    let coordinates = e.lngLat.toArray();
+    let id = coordinates[0].toString()+coordinates[1].toString();
+    buffer.push(coordinates);
+
+    e.target.addSource(id, {
+        'type': 'geojson',
+        'data': {
+            'type': 'Feature',
+            'geometry': {
+                'type': 'Point',
+                // These coordinates outline Maine.
+                'coordinates': coordinates
+            }
+        }
+    });
+
+    // Add a new layer to visualize the polygon.
+    e.target.addLayer({
+        'id': id,
+        'type': 'circle',
+        'source': id, // reference the data source
+        'layout': {},
+        'paint': {
+            'circle-radius': 6,
+            'circle-color': '#B42222'
+        }
+    });
 });
+
+document.addEventListener("keyup", function (event) {
+    if (" "==event.key) {
+        console.log(buffer);
+        buffer=[];
+    }
+});
+
 
 export default map;
