@@ -1,6 +1,6 @@
-import map from './init';
-import areas from './areas';
-import fillData from './fillData';
+import map from './init.js';
+import areas from './areas.js';
+import fillData from './fillData.js';
 
 
 fillData(map, areas);
