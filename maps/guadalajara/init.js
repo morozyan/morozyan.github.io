@@ -41,9 +41,12 @@ map.on('click', (e) => {
 });
 
 document.addEventListener("keyup", function (event) {
-    if (" "==event.key) {
-        buffer.forEach(arr => console.log(`[${arr}],`))
-        buffer=[];
+    if (" " == event.key) {
+        let collector = "";
+        buffer.forEach(arr => collector += `[${arr}],\n`);
+        console.log(collector);
+
+        buffer = [];
     }
 });
 
