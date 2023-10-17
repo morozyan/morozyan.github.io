@@ -5,7 +5,11 @@ const map = new mapboxgl.Map({
     // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
     style: 'mapbox://styles/mapbox/streets-v12', // style URL
     center: [-103.34872062829716, 20.672494028475253], // starting position [lng, lat]
-    zoom: 11 // starting zoom
+    zoom: 11, // starting zoom
+    maxBounds:[
+        [-103.49774890972246,20.773235359382724],
+        [-103.18034003981465,20.49887729424293],
+    ]
 });
 
 let buffer = [];
