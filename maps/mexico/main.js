@@ -6,9 +6,9 @@ async function initMap() {
   // Request needed libraries.
   const { Map } = await google.maps.importLibrary("maps");
 
-  map = new Map(document.querySelector("gmp-map"), {
-    center: { lat: 20.773, lng: -156.01 },
-    zoom: 12,
+  map = new Map(document.querySelector("#MyMexico"), {
+    center: { lat: 19.434144973754883, lng: -99.13312530517578 },
+    zoom: 6,
     // In the cloud console, configure this Map ID with a style that enables the
     // "Locality" feature layer.
     mapId: "16284e329274360c", // <YOUR_MAP_ID_HERE>,
