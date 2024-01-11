@@ -1,4 +1,4 @@
-import states from './states';
+import states from './states.js';
 
 let map;
 let featureLayer;
