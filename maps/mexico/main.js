@@ -7,8 +7,8 @@ async function initMap() {
   const { Map } = await google.maps.importLibrary("maps");
 
   map = new Map(document.querySelector("#MyMexico"), {
-    center: { lat: 19.434144973754883, lng: -99.13312530517578 },
-    zoom: 6,
+    center: { lat: 21.011806, lng: -101.368917 },
+    zoom: 4,
     mapId: "16284e329274360c", 
   });
 
@@ -23,7 +23,7 @@ async function initMap() {
   };
 
   const unvisitedStateFeatureStyleOptions = {
-    strokeColor: "#7E7A7F",
+    strokeColor: "#810FCB",
     strokeOpacity: 1.0,
     strokeWeight: 3.0,
   };
