@@ -16,7 +16,7 @@ async function initMap() {
 
     featureLayer = map.getFeatureLayer("ADMINISTRATIVE_AREA_LEVEL_1");
 
-    setFeatureLayerStyle(featureLayer, states);
+    setFeatureLayerStyle(featureLayer, states, map);
     setCoatOfArmsClickHandler(featureLayer, InfoWindow);
 }
 

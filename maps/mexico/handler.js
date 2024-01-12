@@ -1,6 +1,7 @@
 import states from "./states.js";
 
 let infoWindow;
+let map;
 
 function handleClick(e) {
     let feature = e.features[0];
@@ -32,7 +33,8 @@ function updateInfoWindow(content, center) {
     });
 }
 
-let setCoatOfArmsClickHandler = (featureLayer, InfoWindow) => {
+let setCoatOfArmsClickHandler = (featureLayer, InfoWindow, mexicoMap) => {
+    map = mexicoMap;
     featureLayer.addListener("click", handleClick);
     infoWindow = new InfoWindow({});
 };
