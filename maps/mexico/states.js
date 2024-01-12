@@ -62,7 +62,7 @@ let states = {
     "ChIJb05i1OtAH4QRU0obWqOw_qA": {
         "name": "Jalisco",
         "date": new Date(2022, 9, 1),
-        "coatOfArms": ""
+        "coatOfArms": "jalisco.jpg"
     },
     "ChIJOwrrwJKJzYURV6jFn775_sI": {
         "name": "México",

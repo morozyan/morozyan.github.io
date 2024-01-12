@@ -37,6 +37,20 @@ async function initMap() {
         return unvisitedStateFeatureStyleOptions;
     }
   };
+
+  function handleClick(e) {
+    let feature = e.features[0];
+
+    if (!feature.placeId) return;
+    let state = states[options.feature.placeId];
+    if (state != undefined) {
+        window.open(`CoatOfArms/${state.coatOfArms}`, '_blank');
+    }
+
+
+  }
+
+  featureLayer.addListener("click", handleClick);
 }
 
 
