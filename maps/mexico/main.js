@@ -42,7 +42,7 @@ async function initMap() {
     let feature = e.features[0];
 
     if (!feature.placeId) return;
-    let state = states[options.feature.placeId];
+    let state = states[feature.placeId];
     if (state != undefined) {
         window.open(`CoatOfArms/${state.coatOfArms}`, '_blank');
     }
