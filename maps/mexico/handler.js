@@ -19,7 +19,7 @@ async function createStateInfoWindow(state, event) {
 
     let content =
         `<span>${state.name}<br/>`
-        + (state.coatOfArms != null ?`<img src="${imageUrl}" alt="Coat of arms" />` :'')
+        + (state.coatOfArms != null ? `<img src="${imageUrl}" alt="Coat of arms" />` : '')
         + `</span>`;
     updateInfoWindow(content, event.latLng);
 }
