@@ -12,6 +12,8 @@ let setFeatureLayerStyle = (featureLayer, states) => {
         strokeColor: "#810FCB",
         strokeOpacity: 1.0,
         strokeWeight: 3.0,
+        fillColor: "#810FCB",
+        fillOpacity: 0.01,
     };
 
     featureLayer.style = (options) => {
