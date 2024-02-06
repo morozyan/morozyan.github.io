@@ -76,7 +76,7 @@ let states = {
     },
     "ChIJt1yzHj5fKoQR1OBL8wxlxzs": {
         "name": "Michoacán de Ocampo",
-        "date": null,
+        "date": new Date(2024, 0, 1),
         "coatOfArms": "michoacan.jpg"
     },
     "ChIJR_72Ja7fzYURD91poSWCX5c": {
