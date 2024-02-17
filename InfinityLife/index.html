@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>InfinityLife</title>
+    <link rel="stylesheet" href="css/app.css" type="text/css" />
+    <link rel="stylesheet" href="css/cells.css" type="text/css" />
+    <link rel="stylesheet" href="css/menu.css" type="text/css" />
+    <link rel="stylesheet" href="css/gameMenu.css" type="text/css" />
+    <script type="text/javascript" src="helpers.js"></script>
+    <script type="text/javascript" src="Units/cell.js"></script>
+    <script type="text/javascript" src="Units/bacteriummap.js"></script>
+    <script type="text/javascript" src="Units/bacteriummapfactory.js"></script>
+    <script type="text/javascript" src="game.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="Scripts/quo.js"></script>
+    <script type="text/javascript" src="Options/gesture.js"></script>
+    <script type="text/javascript" src="Options/gamepad.js" ></script>
+</head>
+<body>
+    <div id="menu">
+        <!--<div></div>-->
+        <div id="newGame"><span>New Game</span></div>
+        <div id="resumeGame" ><span>Resume</span></div>
+        <div class="inactiveMenu"><span>Options</span></div>
+        <div id="help"><span>Use WASD for moving!</span></div>
+    </div>
+        <div class="parent">
+            <div class="child">
+                <div class="parent2">
+                    <div class="child2">
+                        <div id="bar">
+                            <div id="pause" class="menuText">&#9776;</div>
+                            <div class="menuText">Enemies 
+                            <div id="enemy"></div>
+                            </div>
+                            <div class="menuText">Score 
+                                <div id="score" ></div>
+                            </div>
+                            <div class="menuText">Best Score 
+                                <div id="bestScore"></div>
+                            </div>
+                        </div>
+                        <div id="game" class="">
+                            <table>
+                                <colgroup width="1*"></colgroup>
+                                <colgroup width="1*"></colgroup>
+                                <colgroup width="1*"></colgroup>
+                                <colgroup width="1*"></colgroup>
+                                <colgroup width="1*"></colgroup>
+                                <colgroup width="1*"></colgroup>
+                                <colgroup width="1*"></colgroup>
+                                <colgroup width="1*"></colgroup>
+                                <colgroup width="1*"></colgroup>
+                                <colgroup width="1*"></colgroup>
+                                <colgroup width="1*"></colgroup>
+                                <colgroup width="1*"></colgroup>
+                                <colgroup width="1*"></colgroup>
+                                <colgroup width="1*"></colgroup>
+                                <colgroup width="1*"></colgroup>
+                                <colgroup width="1*"></colgroup>
+                                <colgroup width="1*"></colgroup>
+                                <colgroup width="1*"></colgroup>
+                                <colgroup width="1*"></colgroup>
+                                <colgroup width="1*"></colgroup>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                        <div id="endGame">
+                            <div>
+                                <div>
+                                    <div id="endGameMessage">You dead!</div>
+                                    <div id="newRecord">New record 999999</div>
+                                    <div id="startNewGame">New Game</div>
+                                    <div id="gotoMenu">Menu</div>
+                                </div>
+                            </div>
+                        </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

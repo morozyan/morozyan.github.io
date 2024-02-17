@@ -1,0 +1,125 @@
+﻿.empty {
+    background-color: rgb(209, 184, 144);
+}
+
+.main {
+    background-color: #006A8D;
+}
+
+.enemy {
+    background-color: rgb(151, 8, 88);
+}
+
+.bonus {
+    background-color: #067E41;
+}
+
+.freeze {
+    background-color: #9AEFFF;
+}
+
+.animationOptions {
+    animation-duration: 0.25s;
+    animation-timing-function: ease-out;
+    animation-delay: 0;
+    animation-direction: alternate;
+    animation-iteration-count: 1;
+    animation-fill-mode: none;
+    animation-play-state: running;
+}
+
+.bornedCell {
+    animation-name: born;
+}
+
+@keyframes born {
+    0% {
+        transform: scale(0.5);
+    }
+}
+
+.dyingEnemyCell {
+    animation-name: dieEnemy;
+    opacity: 0.3333333333333333;
+}
+
+@keyframes dieEnemy {
+    0% {
+        background-color: rgb(151, 8, 88);
+    }
+
+    100% {
+        transform: scale(0.5);
+    }
+}
+
+.dyingBonusCell {
+    animation-name: dieBonus;
+    opacity: 0.25;
+}
+
+@keyframes dieBonus {
+    0% {
+        background-color: #067E41;
+    }
+
+    100% {
+        transform: scale(0.5);
+    }
+}
+
+.dyingFreezeCell {
+    animation-name: dieFreeze;
+    opacity: 0.25;
+}
+
+@keyframes dieFreeze {
+    0% {
+        background-color: #9AEFFF;
+    }
+
+    100% {
+        transform: scale(0.5);
+    }
+}
+
+.leftMoveMainCell {
+    animation-name: leftMove;
+}
+
+@keyframes leftMove {
+    0% {
+        transform: translateX(100%);
+    }
+}
+
+.rightMoveMainCell {
+    animation-name: rightMove;
+}
+
+@keyframes rightMove {
+    0% {
+        transform: translateX(-100%);
+    }
+}
+
+.upMoveMainCell {
+    animation-name: upMove;
+}
+
+@keyframes upMove {
+    0% {
+        transform: translateY(100%);
+    }
+}
+
+
+.downMoveMainCell {
+    animation-name: downMove;
+}
+
+@keyframes downMove {
+    0% {
+        transform: translateY(-100%);
+    }
+}

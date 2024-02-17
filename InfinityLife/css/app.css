@@ -1,0 +1,63 @@
+﻿html, 
+body {
+    height: 100%;
+    width:100%;
+    margin:0;
+    font-family: Courier New, Courier, monospace;
+    background-color:#9D7A7C;
+    color:#FFFFFF;
+}
+
+table {
+    border-radius:4px;
+    height: 100%;
+    width: 98%;
+    margin: auto;
+    border: 3px solid cadetblue;
+    background-color:cadetblue;
+}
+
+.freezeTable{
+    border: 3px solid #9AEFFF;
+}
+
+.parent {
+  font-size: 90vh;
+  height: 1em;
+}
+
+.child {
+    height: 100%;
+    width: 1em; 
+    margin:auto;
+    max-width: 100%;
+}
+
+.parent2{
+    max-height: 100%;
+    font-size: 100vw;
+    height: 1em;
+}
+
+.child2{
+    width: 1em;
+    height: 100%;
+    max-width: 100%;
+}
+
+
+td{
+    border-radius:3px;
+    padding:0;
+    background-color:rgb(209, 184, 144);
+}
+
+tr{
+    height:5%;
+}
+
+td div {
+    height: 100%;
+    width: 100%;
+    border-radius: 3px;
+}

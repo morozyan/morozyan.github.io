@@ -1,0 +1,61 @@
+﻿.invisible{
+    display:none;
+}
+#menu{
+    width:100%;
+    font-size:104vh;   
+    background-color:#9D7A7C;
+    position: fixed;
+    top:0px;
+        
+}
+
+#menu div{ 
+    cursor: pointer;   
+    height: 0.2em;
+    border: 1vh solid #FFFFFF;
+    border-radius: 2vh;
+    line-height: 20%;
+    margin:2vh auto;
+    color: #FFFFFF;
+}
+
+#menu div span{
+    position: absolute;
+}
+.inactiveMenu{
+    border: 1vh solid #AAAAAA !important;
+    color: #AAAAAA  !important;
+}
+#game {
+    height: 100%;
+}
+
+#menu > div:nth-child(4){
+    border-width:0;
+}
+
+@media screen and (orientation: portrait) {
+    #menu div {
+        width: 80vw;
+    }
+    #menu div span{
+        font-size: 16vw;
+    }
+    #menu > div:nth-child(4) > span{
+        font-size: 6.5vw;		
+    }
+}
+
+@media screen and (orientation: landscape) {
+    #menu div{ 
+        width: 0.8em;
+    }
+    
+    #menu div span{
+        font-size: 15vh;
+    }
+    #menu > div:nth-child(4) > span{
+	    font-size: 7vh;		
+    }
+}
