@@ -106,7 +106,7 @@ let states = {
     },
     "ChIJX3BEYdFE04URu2lIpMSxRpE": {
         "name": "Querétaro",
-        "date": null,
+        "date":  new Date(2024, 03, 1),
         "coatOfArms": "queretaro.jpg"
     },
     "ChIJlSbD6vD8T48RnI1MSCrF8MQ": {
