@@ -11,7 +11,7 @@ let states = {
     },
     "ChIJyR6itTnTr4YRGFmnqTqz33E": {
         "name": "Baja California Sur",
-        "date": null,
+        "date": new Date(2024, 7, 19),
         "coatOfArms": "bajaCaliforniaSur.jpg"
     },
     "ChIJFeLHS0LD6IURw_yqe4z3i-Y": {
@@ -121,7 +121,7 @@ let states = {
     },
     "ChIJWUmnKJRTn4YR71--DXbfe5w": {
         "name": "Sinaloa",
-        "date": null,
+        "date": new Date(2024, 7, 17),
         "coatOfArms": "sinaloa.jpg"
     },
     "ChIJD9JN52kpmIYRdOO7_Br_Vs0": {
