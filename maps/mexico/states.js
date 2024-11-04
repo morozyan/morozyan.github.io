@@ -81,7 +81,7 @@ let states = {
     },
     "ChIJR_72Ja7fzYURD91poSWCX5c": {
         "name": "Morelos",
-        "date": null,
+        "date": new Date(2024, 10, 1),
         "coatOfArms": "morelos.jpg"
     },
     "ChIJR9s-5pyoIIQROdKUhqL1yMI": {
