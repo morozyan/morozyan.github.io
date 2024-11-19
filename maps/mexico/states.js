@@ -1,7 +1,7 @@
 let states = {
     "ChIJuRMJdqXmKYQRHxX0saYvLmY": {
         "name": "Aguascalientes",
-        "date": null,
+        "date": new Date(2024, 10, 15),
         "coatOfArms": "aguascalientes.jpg"
     },
     "ChIJ0913qAxw14ARjt4YA5_9pPw": {
