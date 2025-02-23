@@ -46,7 +46,7 @@ let states = {
     },
     "ChIJf3-bUI9bK4QRoEO-gRmmjuc": {
         "name": "Guanajuato",
-        "date": new Date(2023, 3, 1),
+        "date": new Date(2023, 3, 6),
         "coatOfArms": "guanajuato.jpg"
     },
     "ChIJPyAn81hly4UROst3QpsiNzE": {
@@ -61,37 +61,37 @@ let states = {
     },
     "ChIJb05i1OtAH4QRU0obWqOw_qA": {
         "name": "Jalisco",
-        "date": new Date(2022, 9, 1),
+        "date": new Date(2022, 9, 20),
         "coatOfArms": "jalisco.jpg"
     },
     "ChIJOwrrwJKJzYURV6jFn775_sI": {
         "name": "México",
-        "date": new Date(2023, 6, 1),
+        "date": new Date(2023, 6, 22),
         "coatOfArms": "mexico.jpg"
     },
     "ChIJJyk1sTYAzoURW4rR6E6e_d4": {
         "name": "Ciudad de México",
-        "date": new Date(2023, 6, 1),
+        "date": new Date(2023, 6, 22),
         "coatOfArms": "mexico.jpg"
     },
     "ChIJt1yzHj5fKoQR1OBL8wxlxzs": {
         "name": "Michoacán de Ocampo",
-        "date": new Date(2024, 0, 1),
+        "date": new Date(2024, 1, 3),
         "coatOfArms": "michoacan.jpg"
     },
     "ChIJR_72Ja7fzYURD91poSWCX5c": {
         "name": "Morelos",
-        "date": new Date(2024, 10, 1),
+        "date": new Date(2024, 10, 3),
         "coatOfArms": "morelos.jpg"
     },
     "ChIJR9s-5pyoIIQROdKUhqL1yMI": {
         "name": "Nayarit",
-        "date": new Date(2023, 5, 1),
+        "date": new Date(2023, 5, 8),
         "coatOfArms": "nayarit.jpg"
     },
     "ChIJXbClooSVYoYRxrtsw0L0HXA": {
         "name": "Nuevo León",
-        "date": null,
+        "date": new Date(2025, 1, 22),
         "coatOfArms": "nuevoLeon.jpg"
     },
     "ChIJUVwOOk_YwIURyQvZPUMMxkQ": {
@@ -106,12 +106,12 @@ let states = {
     },
     "ChIJX3BEYdFE04URu2lIpMSxRpE": {
         "name": "Querétaro",
-        "date":  new Date(2024, 3, 1),
+        "date":  new Date(2024, 3, 30),
         "coatOfArms": "queretaro.jpg"
     },
     "ChIJlSbD6vD8T48RnI1MSCrF8MQ": {
         "name": "Quintana Roo",
-        "date": new Date(2022, 11, 1),
+        "date": new Date(2022, 11, 17),
         "coatOfArms": "quintanaRoo.jpg"
     },
     "ChIJefusBQCiKoQRXkEExEGyIOY": {
@@ -151,7 +151,7 @@ let states = {
     },
     "ChIJ7QTWqvgPVI8RCj0IMXUhzMw": {
         "name": "Yucatán",
-        "date": new Date(2022, 11, 1),
+        "date": new Date(2022, 11, 24),
         "coatOfArms": "yucatan.jpg"
     },
     "ChIJb_7JfqDRgYYRmG0lXv0tHxw": {
