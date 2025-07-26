@@ -2,7 +2,13 @@
 <html>
   <head>
     <title>Henley Passport Index</title>
-  </head>
+
+    <!-- Add script to the <head> of your page to load the embeddable map component -->
+    <script type="module" src="https://js.arcgis.com/embeddable-components/4.33/arcgis-embeddable-components.esm.js"></script>
+</head>
   <body>
+    <!-- Add custom element to <body> of your page -->
+    <arcgis-embedded-map style="height:600px;width:700px;" item-id="40bfde5b8350476995362890b7b5bc0d" theme="light" center="20.509660294972036,6.967672661373171"scale="18489297.737236" portal-url="https://rmtest.maps.arcgis.com" ></arcgis-embedded-map>
+  
   </body>
 </html>
