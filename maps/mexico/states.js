@@ -156,7 +156,7 @@ let states = {
     },
     "ChIJb_7JfqDRgYYRmG0lXv0tHxw": {
         "name": "Zacatecas",
-        "date": null,
+        "date": new Date(2025, 10, 16),
         "coatOfArms": "zacatecas.jpg"
     }
 }
